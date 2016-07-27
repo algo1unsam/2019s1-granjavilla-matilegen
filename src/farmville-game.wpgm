@@ -1,7 +1,8 @@
 import nivel.*
+
 program FarmvilleGame {
 	
 	nivel.configurate()
 //	START
-	wgame.start()
+	game.start()
 }

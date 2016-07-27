@@ -5,17 +5,17 @@ object nivel {
 
 method configurate(){
 	//	CONFIG	
-	wgame.setTitle("FarmVille")
-	wgame.setHeight(10)
-	wgame.setWidth(10)
-	wgame.setGround("ground.png")
+	game.setTitle("FarmVille")
+	game.setHeight(10)
+	game.setWidth(10)
+	game.setGround("ground.png")
 	
 //	VISUALES
- 	wgame.addVisualCharacter(granjero)
+ 	game.addVisualCharacter(granjero)
 	
 //	ARBUSTOS
-	const ancho = wgame.getWidth() - 1
-	const largo = wgame.getHeight() - 1
+	const ancho = game.getWidth() - 1
+	const largo = game.getHeight() - 1
 
 	(1 .. ancho-1).forEach { n => new ArbustoAbajo(new Position(n, 0)) } // bordeAbajo
 	(1 .. ancho-1).forEach { n => new ArbustoArriba(new Position(n, largo)) } // bordeArriba 
