@@ -6,15 +6,16 @@ class Arbusto {
 		game.whenCollideDo(self, { granjero => self.empuja(granjero) })
 	}
 
-	method getImagen() = "fence02.png"
+	method imagen() = "fence02.png"
 	method getPosicion() = posicion
 	method setPosicion(_posicion) { posicion = _posicion }
+	method empuja(granjero)
 }
 
 class ArbustoArriba inherits Arbusto {
 	constructor(_posicion) = super(_posicion)
 	
-	method empuja(granjero) {
+	override method empuja(granjero) {
 		granjero.getPosicion().moveDown(1)
 	}
 }
@@ -22,7 +23,7 @@ class ArbustoArriba inherits Arbusto {
 class ArbustoAbajo inherits Arbusto {
 	constructor(_posicion) = super(_posicion)
 	
-	method empuja(granjero) {
+	override method empuja(granjero) {
 		granjero.getPosicion().moveUp(1)
 	}
 }
@@ -30,7 +31,7 @@ class ArbustoAbajo inherits Arbusto {
 class ArbustoIzquierda inherits Arbusto {
 	constructor(_posicion) = super(_posicion)
 	
-	method empuja(granjero) {
+	override method empuja(granjero) {
 		granjero.getPosicion().moveRight(1)
 	}
 }
@@ -38,7 +39,7 @@ class ArbustoIzquierda inherits Arbusto {
 class ArbustoDerecha inherits Arbusto {
 	constructor(_posicion) = super(_posicion)
 	
-	method empuja(granjero) {
+	override method empuja(granjero) {
 		granjero.getPosicion().moveLeft(1)
 	}
 }

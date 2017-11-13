@@ -12,7 +12,7 @@ class Cultivo {
 	}
 	
 	method setEtapa(_edad) { etapa = _edad }
-	method getImagen() = etapa.getImagen(self)
+	method imagen() = etapa.getImagen(self)
 	method getPosicion() = posicion
 	method setPosicion(_posicion) { posicion = _posicion }
 }

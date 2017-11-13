@@ -1,8 +1,0 @@
-import nivel.*
-
-program FarmvilleGame {
-	
-	nivel.configurate()
-//	START
-	game.start()
-}
