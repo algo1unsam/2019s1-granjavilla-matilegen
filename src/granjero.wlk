@@ -1,24 +1,18 @@
 import cultivos.*
 
 object granjero {
-	var oro = 0
 	var cultivos = []
-	var posicion = new Position(3, 3)
+	var property oro = 0
+	var property posicion = new Position(3, 3)
+	const property imagen = "player.png"
 	
-	method plantaMaiz() {
-		self.planta(new Maiz())
-	}
+	method plantaMaiz() { self.planta(maiz) }
+	method plantaTrigo() { self.planta(trigo) }
+	method plantaTomaco() { self.planta(tomaco) }
 
-	method plantaTrigo() {
-		self.planta(new Trigo())
-	
-	}
-	method plantaTomaco() {
-		self.planta(new Tomaco())
-	}
-
-	method planta(cultivo) {
-		posicion.clone().drawElement(cultivo)
+	method planta(tipoCultivo) {
+		var cultivo = new Cultivo(tipo = tipoCultivo, posicion = posicion.clone())
+		game.addVisual(cultivo)
 		cultivos.add(cultivo)
 	}
 	
@@ -38,9 +32,4 @@ object granjero {
 	}
 	
 	method sumaOro(cantidad) { oro += cantidad }
-
-	method imagen() = "player.png"
-	method getPosicion() = posicion
-	method getOro() = oro
-	method setPosicion(_posicion) { posicion = _posicion }
 }

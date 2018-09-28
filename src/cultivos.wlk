@@ -1,36 +1,34 @@
 import etapas.*
 
 class Cultivo {
-	var posicion
-	var etapa = ninio
+	var property tipo
+	var property posicion
+	var property etapa = ninio
 	
 	method crece() { etapa.crece(self) }
 	
 	method cosechate(granjero) {
-		granjero.sumaOro(etapa.oroPorCosecha(self))
+		granjero.sumaOro(etapa.oroPorCosecha(tipo))
 		etapa = muerto
 	}
 	
-	method setEtapa(_edad) { etapa = _edad }
-	method imagen() = etapa.getImagen(self)
-	method getPosicion() = posicion
-	method setPosicion(_posicion) { posicion = _posicion }
+	method imagen() = etapa.getImagen(tipo)
 }
 
 
-class Maiz inherits Cultivo {
+object maiz {
 	method imagenCultivoAdulto() = "corn_adult.png"
 	method imagenCultivoNinio() = "corn_baby.png"
 	method oroBase() = 150
 }
 
-class Trigo inherits Cultivo {
+object trigo{
 	method imagenCultivoAdulto() = "wheat_adult.png"
 	method imagenCultivoNinio() = "wheat_baby.png"
 	method oroBase() = 100
 }
 
-class Tomaco inherits Cultivo {
+object tomaco {
 	method imagenCultivoAdulto() = "tomaco_adult.png"
 	method imagenCultivoNinio() = "tomaco_baby.png"
 	method oroBase() = 50

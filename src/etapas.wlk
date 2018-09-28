@@ -1,6 +1,6 @@
 object ninio {
 
-	method crece(cultivo) { cultivo.setEtapa(adulto) } 
+	method crece(cultivo) { cultivo.etapa(adulto) } 
 
 	method oroPorCosecha(_) = 0
 	
@@ -9,7 +9,7 @@ object ninio {
 
 object adulto {
 	
-	method crece(cultivo) { cultivo.setEtapa(muerto) } 
+	method crece(cultivo) { cultivo.etapa(muerto) } 
 	
 	method oroPorCosecha(cultivo) = cultivo.oroBase()
 	
@@ -18,7 +18,7 @@ object adulto {
 
 object muerto {
 	
-	method crece(_) { "No hace nada" } 
+	method crece(_) {} // No hace nada 
 	
 	method oroPorCosecha(_) = 0
 	
