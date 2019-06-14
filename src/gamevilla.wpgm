@@ -1,0 +1,53 @@
+import wollok.game.*
+import hector.*
+import planta.*
+import mercado.*
+
+program PepitaGame {
+	
+//	CONFIG	
+	game.title("granjaVilla")
+	game.height(10)
+	game.width(10)
+	game.ground("ground.png")
+	
+//	VISUALES
+	const maiz = new Maiz(position=game.at(2, 4))
+	const tomaco = new Tomaco(position=game.at(4, 7))
+	const trigo = new Trigo(position=game.at(7, 3))
+	const mercado1=new Mercado(oro=20000,position=game.at(9, 9) )
+	const mercado2=new Mercado(oro=20000,position=game.at(1,9) )
+		const mercado3=new Mercado(oro=20000,position=game.at(1,1) )
+
+	game.addVisual(hector)
+	game.addVisual(maiz)
+	game.addVisual(tomaco)
+	game.addVisual(trigo)
+	game.addVisual(mercado1)
+	game.addVisual(mercado2)
+	game.addVisual(mercado3)
+
+//	TECLADO sembrado
+	keyboard.m().onPressDo{game.addVisual(new Maiz(position=hector.position()))}
+	keyboard.t().onPressDo{game.addVisual(new Trigo(position=hector.position()))}
+	keyboard.o().onPressDo{game.addVisual(new Tomaco(position=hector.position()))}
+		// teclado regado
+	keyboard.r().onPressDo{ hector.regar() }
+		
+		// teclado cosechado
+	keyboard.c().onPressDo{ hector.cosechar() }
+		
+		// teclado venta
+	keyboard.v().onPressDo{ hector.vender() }
+	keyboard.backspace().onPressDo{ hector.tengoOro()	
+	}
+		
+		// teclado movimiento
+	keyboard.up().onPressDo{ hector.move(hector.position().up(1)) }
+	keyboard.down().onPressDo{ hector.move(hector.position().down(1)) }
+	keyboard.left().onPressDo{ hector.move(hector.position().left(1)) }
+	keyboard.right().onPressDo{ hector.move(hector.position().right(1)) }
+	
+//	START
+	game.start()
+}
